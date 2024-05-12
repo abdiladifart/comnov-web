@@ -1,0 +1,119 @@
+/* Style for the homepage */
+body {
+    background-color: #fff6e7; /* Soft cream background color */
+    font-family: 'Arial', sans-serif; /* Modern and readable font */
+}
+
+.home-container {
+    max-width: 1200px; /* Limiting the width for optimal reading */
+    margin: 0 auto; /* Centering the container */
+    padding: 20px; /* Providing some padding around the content */
+    position: relative; /* Needed for absolute positioning of the logo */
+    text-align: center; /* Centers content */
+}
+
+
+
+.main-image {
+    width: 60%; /* Adjusted width */
+    height: 600px; /* Setting a fixed height */
+    margin: 0 auto; /* Centering the image */
+    background: url('../images/image1.jpg') no-repeat center center; /* Correct path to the image */
+    background-size: cover; /* Ensures the image covers the area */
+}
+
+.welcome-text {
+    font-size: 28px; /* Large font size for welcome message */
+    color: #333; /* Dark text for contrast */
+    margin-top: 20px; /* Space above the text */
+}
+
+@media (max-width: 768px) {
+    .logo {
+        position: relative; /* Reset position on smaller screens */
+    }
+
+    .main-image {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .welcome-text {
+        font-size: 20px; /* Smaller font size for smaller screens */
+    }
+}
+/* Existing styles... */
+
+.books-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.book-image {
+    width: 150px;  /* Adjust size as needed */
+    height: 220px; /* Adjust size as needed */
+    object-fit: cover;
+    border-radius: 8px; /* Rounded corners for aesthetics */
+}
+
+.more-books-link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: #342E23;
+    text-decoration: none;
+}
+
+.more-books-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .books-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-image {
+        margin-bottom: 10px;
+    }
+}
+
+/* Additional styles for the publishing section */
+/* Additional styles for the publishing section */
+.publishing-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffe2c0; /* Adjusted color for better visibility */
+    border-radius: 8px;
+    display: flex; /* Using flexbox to layout the section */
+    flex-direction: column; /* Elements stack vertically */
+    align-items: center; /* Align items in the center */
+    text-align: center;
+}
+
+.publishing-image {
+    width: 100%; /* Full width on mobile, adjust as needed */
+    max-width: 400px; /* Increased size for better visibility */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px 0; /* Space above and below the image */
+}
+
+.publish-link {
+    display: block;
+    margin-top: 20px; /* Ensure margin at the top */
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #342E23; /* Button background */
+    color: white; /* Text color */
+    text-decoration: none;
+    border-radius: 5px;
+    border: none; /* No border */
+    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.publish-link:hover {
+    background-color: #261A15; /* Darker shade on hover */
+}

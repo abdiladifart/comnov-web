@@ -1,0 +1,52 @@
+nav {
+  padding: 25px;
+  /* background-color: #000000; */
+  margin-bottom: 20px;
+}
+
+nav a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  padding: 8px;
+  margin-left: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #342E23;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.logo {
+  position: absolute; /* Absolute position */
+  top: 10px; /* Top margin space */
+  right: 20px; /* Left margin space */
+  font-size: 24px; /* Larger text for visibility */
+  color: #333; /* Dark color for contrast */
+}
