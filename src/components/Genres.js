@@ -3,7 +3,7 @@ import React from 'react';
 function Genres() {
   return (
     <main>
-      <div className="genres-container">
+      <div className="genre-container">
         <h1>Explore Genres</h1>
         <p>Browse through a diverse range of genres to find your next great read. Whether you're into traditional literature, thrilling manga, or exciting comics, ComicNova has something for everyone.</p>
         

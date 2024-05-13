@@ -1,0 +1,71 @@
+/* about.css */
+.about-us-container {
+    max-width: 1152px;
+    margin: 0 auto; /* Centering the container */
+    padding: 40px;
+    background-color: #ffffff; /* Pure white background */
+    text-align: left; /* Align text to the left */
+    border-radius: 8px; /* Soft rounded corners for a modern look */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex; /* Using flexbox for side by side layout */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space between the image and text */
+    gap: 20px; /* Gap between elements */
+}
+
+.about-us-text {
+    flex: 1; /* Takes up half the space */
+    padding: 0 20px;
+}
+
+.about-us-container h1 {
+    color: #43655A; /* Bold color for the header */
+    font-size: 2.5rem; /* Larger font size for the main title */
+}
+
+.about-us-container p {
+    color: #43655A; /* Dark gray color for text */
+    line-height: 1.8; /* Improved line height for readability */
+    font-size: 1.2rem; /* Comfortable reading size for paragraphs */
+    margin-bottom: 20px; /* Space between paragraphs */
+}
+
+.about-us-image {
+    width: 50%; /* 50% of the container width */
+    max-width: 500px; /* Maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+.read-more-button {
+    background-color: #43655A; /* Vibrant purple background */
+    color: white; /* White text for contrast */
+    border: none; /* No border for a cleaner look */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase; /* Capitalize text */
+    font-weight: bold; /* Make font bold */
+    cursor: pointer; /* Indicates that the button is clickable */
+    text-decoration: none; /* No underline */
+    display: inline-block; /* Align correctly with text */
+}
+
+.read-more-button:hover {
+    background-color: #342E23; /* Darker shade for hover effect */
+}
+
+@media (max-width: 768px) {
+    .about-us-container {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        text-align: center; /* Center text on smaller screens */
+    }
+
+    .about-us-image {
+        width: 80%; /* Larger image on smaller screens */
+        margin: 0 auto; /* Centering the image */
+    }
+
+    .about-us-text {
+        order: 2; /* Text comes after the image */
+    }
+}

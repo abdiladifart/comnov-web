@@ -1,0 +1,65 @@
+/* login.css */
+.login-container {
+    background: #FFFFFF; /* pure white background */
+    width: 360px; /* optimal width for forms */
+    margin: 100px auto; /* centering the form vertically and horizontally */
+    padding: 2rem; /* spacious padding around the content */
+    border-radius: 8px; /* subtle rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
+    text-align: center; /* centering the text inside the container */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column; /* stack the form elements vertically */
+}
+
+.login-form label {
+    text-align: left; /* aligning labels to the left */
+    font-size: 0.9rem; /* appropriate label size */
+    margin-bottom: 0.5rem; /* space below each label */
+}
+
+.login-form input {
+    padding: 0.8rem; /* comfortable padding inside inputs */
+    margin-bottom: 1rem; /* space between form fields */
+    border: 1px solid #ccc; /* subtle border for inputs */
+    border-radius: 4px; /* matching rounded corners */
+    font-size: 1rem; /* readable font size */
+}
+
+.login-form button {
+    background-color: #43655A; /* attractive button color */
+    color: white; /* white text for contrast */
+    border: none; /* no border for a cleaner look */
+    padding: 0.8rem;
+    border-radius: 4px; /* consistency in rounded corners */
+    cursor: pointer; /* cursor hint for clickable elements */
+    font-size: 1rem;
+    transition: background-color 0.3s; /* smooth transition for hover effect */
+}
+
+.login-form button:hover {
+    background-color: #342E23; /* slightly darker on hover for feedback */
+}
+
+.register-link {
+    color: #43655A; /* theme color for links */
+    text-decoration: none; /* no underline */
+    margin-top: 1rem; /* space above the link */
+    font-size: 0.9rem;
+}
+
+.register-link:hover {
+    text-decoration: underline; /* underline on hover for link */
+}
+
+.background-image {
+    position: absolute; /* full coverage */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* cover the entire viewport */
+    z-index: -1; /* send to back */
+}

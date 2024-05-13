@@ -7,7 +7,7 @@ nav {
 nav a {
   margin-right: 10px;
   text-decoration: none;
-  color: black;
+  color: #43655A;
 }
 
 nav a:hover {
@@ -33,14 +33,14 @@ input {
 
 button {
   padding: 10px 15px;
-  background-color: #342E23;
+  background-color: #43655A;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #43655A;
 }
 
 .logo {
@@ -48,5 +48,35 @@ button:hover {
   top: 10px; /* Top margin space */
   right: 20px; /* Left margin space */
   font-size: 24px; /* Larger text for visibility */
-  color: #333; /* Dark color for contrast */
+  color: #43655A; /* Dark color for contrast */
 }
+
+html, body {
+  height: 100%; /* Full height for the body */
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Full height for the body
+nav {
+  background-color: #282c34;
+  padding: 1em;
+  text-align: center;
+}
+*/
+footer {
+  background-color: #43655A;
+  color: white;
+  text-align: center;
+  padding: 60px;
+  margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+/* Additional styling as previously defined */

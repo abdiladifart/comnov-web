@@ -1,119 +1,226 @@
-/* Style for the homepage */
 body {
-    background-color: #fff6e7; /* Soft cream background color */
-    font-family: 'Arial', sans-serif; /* Modern and readable font */
+    background-color: #fff;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
 }
 
 .home-container {
-    max-width: 1200px; /* Limiting the width for optimal reading */
-    margin: 0 auto; /* Centering the container */
-    padding: 20px; /* Providing some padding around the content */
-    position: relative; /* Needed for absolute positioning of the logo */
-    text-align: center; /* Centers content */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.header {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center;
+}
+
+.search-bar {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    margin: 0 20px; /* Adds margin to both sides */
+}
+
+
+.logo {
+    font-size: 24px;
+    color: #43655A;
 }
 
 
 
 .main-image {
-    width: 60%; /* Adjusted width */
-    height: 600px; /* Setting a fixed height */
-    margin: 0 auto; /* Centering the image */
-    background: url('../images/image1.jpg') no-repeat center center; /* Correct path to the image */
-    background-size: cover; /* Ensures the image covers the area */
+    width: 100%;
+    height: 300px;
+    background: url('../images/photo-1519682337058-a94d519337bc.avif') no-repeat center center;
+    background-size: cover;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
 .welcome-text {
-    font-size: 28px; /* Large font size for welcome message */
-    color: #333; /* Dark text for contrast */
-    margin-top: 20px; /* Space above the text */
+    font-size: 24px;
+    color: #43655A;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.popular-reads{
+    color: #43655A;
+
+}
+
+.books-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.book-image {
+    width: 150px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.more-books-link, .publish-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #43655A;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.more-books-link:hover, .publish-link:hover {
+    background-color: #43655A;
+}
+
+.publishing-section {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 40px;
 }
 
 @media (max-width: 768px) {
-    .logo {
-        position: relative; /* Reset position on smaller screens */
-    }
-
-    .main-image {
-        width: 100%; /* Full width on smaller screens */
-    }
-
-    .welcome-text {
-        font-size: 20px; /* Smaller font size for smaller screens */
+    .search-bar {
+        width: 90%; /* Adjust width on smaller screens */
     }
 }
 /* Existing styles... */
 
-.books-container {
+.genre-section {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: #43655A;
+}
+
+.genres-container {
+    display: flex;
+    justify-content: space-around; /* Evenly space genre cards */
+    margin-top: 20px;
+}
+
+.genre-card {
+    width: 30%; /* Equal width for each card */
+    padding: 10px;
+    box-shadow: 0 2px 5px #43655A(0,0,0,0.1);
+    text-align: center; /* Center content within the card */
+}
+
+.genre-image {
+    width: 100%; /* Full width of the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+.genre-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #43655A; /* Theme color */
+    text-decoration: none;
+}
+
+.genre-link:hover {
+    color: #43655A; /* Darker color on hover */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .genres-container {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+    }
+
+    .genre-card {
+        width: 100%; /* Full width cards on smaller screens */
+        margin-bottom: 20px; /* Space between stacked cards */
+    }
+}
+/* Existing styles... */
+
+.upcoming-releases h2 {
+    text-align: center;
+    color: #43655A; /* Consistent theming with other sections */
+}
+
+.upcoming-releases .books-container {
     display: flex;
     justify-content: space-around;
     padding: 20px;
 }
 
-.book-image {
-    width: 150px;  /* Adjust size as needed */
-    height: 220px; /* Adjust size as needed */
-    object-fit: cover;
-    border-radius: 8px; /* Rounded corners for aesthetics */
-}
-
-.more-books-link {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    font-size: 18px;
-    color: #342E23;
-    text-decoration: none;
-}
-
-.more-books-link:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    .books-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .book-image {
-        margin-bottom: 10px;
-    }
-}
-
-/* Additional styles for the publishing section */
-/* Additional styles for the publishing section */
-.publishing-section {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #ffe2c0; /* Adjusted color for better visibility */
+/* Styles for the Publish Your Work section */
+.publish-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f3f3f3;
     border-radius: 8px;
-    display: flex; /* Using flexbox to layout the section */
-    flex-direction: column; /* Elements stack vertically */
-    align-items: center; /* Align items in the center */
-    text-align: center;
+    margin: 40px 0;
 }
 
-.publishing-image {
-    width: 100%; /* Full width on mobile, adjust as needed */
-    max-width: 400px; /* Increased size for better visibility */
-    height: auto; /* Maintain aspect ratio */
-    margin: 20px 0; /* Space above and below the image */
+.publish-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #43655A;
+
+}
+
+.publish-image {
+    width: 50%;
+    height: auto;
+    margin-right: 20px; /* Space between the image and the text */
+}
+
+.publish-text {
+    width: 50%;
+    text-align: left;
 }
 
 .publish-link {
-    display: block;
-    margin-top: 20px; /* Ensure margin at the top */
+    display: inline-block;
+    background-color: #43655A;
+    color: white;
     padding: 10px 20px;
-    font-size: 18px;
-    background-color: #342E23; /* Button background */
-    color: white; /* Text color */
+    border-radius: 4px;
     text-decoration: none;
-    border-radius: 5px;
-    border: none; /* No border */
-    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
 .publish-link:hover {
-    background-color: #261A15; /* Darker shade on hover */
+    background-color: #43655A;
+}
+
+@media (max-width: 768px) {
+    .publish-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .publish-image {
+        width: 80%; /* Adjust size for smaller screens */
+        margin: 0 auto 20px; /* Center image and add space below on small screens */
+    }
+
+    .publish-text {
+        width: 100%;
+    }
 }

@@ -9,7 +9,7 @@ import Genres from './components/Genres';
 import TopReads from './components/TopReads';
 import Publish from './components/Publish';
 import Contact from './components/Contact';
-import './styles.css'; // Central stylesheet for global styles
+import './styles.css'; // Ensure CSS path is correct
 
 function App() {
   return (
@@ -26,7 +26,6 @@ function App() {
           <Link to="/publish">Publish</Link>
           <Link to="/contact">Contact Us</Link>
           <div className="logo">ComicNova</div>
-
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -39,6 +38,11 @@ function App() {
           <Route path="/publish" element={<Publish />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <footer>
+          © 2024 ComicNova. All rights reserved.
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms-of-service">Terms of Service</Link>
+        </footer>
       </div>
     </Router>
   );

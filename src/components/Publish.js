@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/publish.css'; // Ensure the CSS path is correct
 
 function Publish() {
   return (

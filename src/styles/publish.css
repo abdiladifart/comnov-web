@@ -1,0 +1,80 @@
+/* Basic layout and typography settings for the publish page */
+.publish-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.publish-container h1 {
+    font-size: 28px;
+    color: #43655A;
+    margin-bottom: 20px;
+}
+
+.publish-container p {
+    font-size: 16px;
+    color: #43655A;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Styling for form elements */
+.submission-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    color: #43655A;
+
+}
+
+.submission-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.submission-form input[type="text"],
+.submission-form select,
+.submission-form textarea,
+.submission-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.submission-form textarea {
+    height: 120px;
+    resize: vertical; /* Allows the user to resize the textarea vertically */
+}
+
+.submission-form button {
+    background-color: #43655A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submission-form button:hover {
+    background-color: #43655A;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .publish-container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .submission-form {
+        grid-template-columns: 1fr;
+    }
+}
