@@ -1,75 +1,60 @@
-import React, { useState } from 'react';
-import '../styles/profile.css'; // Ensure the path is correct
-import lawsImage from '../images/laws.jpg';
-import mastryImage from '../images/mastry.jpg';
-import strategiesImage from '../images/strategies.jpg';
-import bookOneImage from '../images/PopularReads/1646514602.jpg';
-import bookTwoImage from '../images/PopularReads/81i5d0RcSjL._SL1500_.jpg';
-import bookThreeImage from '../images/PopularReads/5vXvHHo.png';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import "../styles/profile.css"
 
 function Profile() {
-    const [profileImage, setProfileImage] = useState(''); // State to hold the profile image URL
+    const [profile, setProfile] = useState(null);
+    const [error, setError] = useState('');
 
-    // Mock data for demonstration
-    const readingHistory = [
-        { id: 1, title: "Laws of Human Nature", imageUrl: lawsImage },
-        { id: 2, title: "Mastery", imageUrl: mastryImage },
-        { id: 3, title: "48 Laws of Power: Strategies", imageUrl: strategiesImage }
-    ];
+    useEffect(() => {
+        const fetchProfile = async () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                setError('You must be logged in to view this page.');
+                return;
+            }
 
-    const favoriteBooks = [
-        { id: 1, title: "The 48 Laws of Power", imageUrl: bookOneImage },
-        { id: 2, title: "The Art of War", imageUrl: bookTwoImage },
-        { id: 3, title: "The 33 Strategies of War", imageUrl: bookThreeImage }
-    ];
-
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        
-        reader.onloadend = () => {
-            setProfileImage(reader.result);
+            try {
+                const response = await axios.get(`http://localhost:3370/api/users/profile`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                setProfile(response.data);
+            } catch (error) {
+                console.error('Failed to fetch profile:', error.response ? error.response.data : 'Server Error');
+                setError('Failed to fetch profile: ' + (error.response ? error.response.data.message : 'Server error'));
+            }
         };
 
-        if (file) {
-            reader.readAsDataURL(file);
-        }
-    };
+        fetchProfile();
+    }, []);
 
     return (
-        <main>
-            <div className="profile-container">
-                <div className="profile-pic-container">
-                    <img src={profileImage || 'default_profile_pic.jpg'} alt="Profile" className="profile-pic" />
-                    <input type="file" onChange={handleImageChange} accept="image/*" />
+        <div className="profile-container">
+            <h1>Profile Page</h1>
+            {profile ? (
+                <div>
+                    <p>Welcome, {profile.username}!</p>
+                    <p>Email: {profile.email}</p>
+                    <p>Member since: {new Date(profile.joinDate).toLocaleDateString()}</p>
+                    <h2>Your Books Page</h2>
+
+                    {profile.books && profile.books.length > 0 ? (
+                        profile.books.map(book => (
+                            <div key={book.id}>
+                                <img src={`data:image/jpeg;base64,${book.cover}`} alt={book.title} style={{ width: 100 }} />
+                                <h3>{book.title}</h3>
+                                <p>{book.genre}</p>
+                                <a href={`/book/${book.id}`}>Read Book</a>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No books published yet.</p>
+                    )}
                 </div>
-                <h1>Profile Page</h1>
-                <p>Welcome, [User Name]!</p>
-                <div className="user-details">
-                    <h2>Your Details</h2>
-                    <p>Email: [User Email]</p>
-                    <p>Member since: [Join Date]</p>
-                </div>
-                <div className="reading-history">
-                    <h2>Your Reading History</h2>
-                    {readingHistory.map(book => (
-                        <div key={book.id} className="book-card">
-                            <img src={book.imageUrl} alt={book.title} />
-                            <h3>{book.title}</h3>
-                        </div>
-                    ))}
-                </div>
-                <div className="favorites">
-                    <h2>Your Favorite Books</h2>
-                    {favoriteBooks.map(book => (
-                        <div key={book.id} className="book-card">
-                            <img src={book.imageUrl} alt={book.title} />
-                            <h3>{book.title}</h3>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </main>
+            ) : (
+                <p>{error || "Loading profile..."}</p>
+            )}
+        </div>
     );
 }
 

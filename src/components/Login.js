@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/login.css'; // Ensure the CSS path is correct
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import "../styles/login.css"
 
-function Login() {
+function Login({ setIsLoggedIn }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log('Login with:', email, password);
+        const payload = { email, password };
+        try {
+            const response = await axios.post('http://localhost:3370/api/users/login', payload);
+            localStorage.setItem('token', response.data.accessToken);
+            localStorage.setItem('userId', response.data.userId);
+            setIsLoggedIn(true);
+            navigate('/profile');
+        } catch (error) {
+            console.error('Login failed:', error.response.data);
+            alert('Login failed: ' + (error.response.data.message || 'Incorrect credentials'));
+        }
     };
 
     return (
