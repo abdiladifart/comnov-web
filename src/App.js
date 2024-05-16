@@ -9,6 +9,8 @@ import Genres from './components/Genres';
 import TopReads from './components/TopReads';
 import Publish from './components/Publish';
 import Contact from './components/Contact';
+import BookReader from './components/BookReader'; // Make sure this import path is correct
+
 import './styles.css';
 
 function App() {
@@ -57,7 +59,9 @@ function App() {
             <Route path="/top-reads" element={<TopReads />} />
             <Route path="/publish" element={<Publish />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/book/:id" element={<BookReader />} />
           </Routes>
+
           <footer>
             © 2024 ComicNova. All rights reserved.
             <Link to="/privacy-policy">Privacy Policy</Link>
