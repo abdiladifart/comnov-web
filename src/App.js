@@ -11,6 +11,9 @@ import Publish from './components/Publish';
 import Contact from './components/Contact';
 import BookReader from './components/BookReader'; // Make sure this import path is correct
 import AdminPage from './components/AdminPage'; // Import your AdminPage component
+import GenreBooks from './components/GenreBooks'; // Component to display books by genre
+import AllBooks from './components/AllBooks'
+
 
 import './styles.css';
 
@@ -33,7 +36,12 @@ function App() {
       <Router>
         <div className="App">
           <nav>
+            <div className="logo">ComicNova</div>
             <Link to="/">Home</Link>
+            <Link to="/books">books</Link>
+            <Link to="/top-reads">Top Reads</Link>
+            <Link to="/publish">Publish</Link>
+
             {!isLoggedIn ? (
                 <Link to="/login">Login</Link>
             ) : (
@@ -43,11 +51,10 @@ function App() {
                 </>
             )}
             <Link to="/register">Register</Link>
+            {/*<Link to="/genres">Genres</Link>*/}
             <Link to="/about">About Us</Link>
-            <Link to="/genres">Genres</Link>
-            <Link to="/top-reads">Top Reads</Link>
-            <Link to="/publish">Publish</Link>
-            <Link to="/contact">Contact Us</Link>
+
+
             <div className="logo">ComicNova</div>
           </nav>
           <Routes>
@@ -55,13 +62,18 @@ function App() {
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/genres" element={<Genres />} />
+            <Route path="/books" element={<AllBooks />} />
             <Route path="/top-reads" element={<TopReads />} />
             <Route path="/publish" element={<Publish />} />
+
+
+            <Route path="/about" element={<About />} />
+            {/*<Route path="/genres" element={<Genres />} />*/}
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/book/:id" element={<BookReader />} />
+            <Route path="/genre/:genre" element={<GenreBooks />} />  // Route for books by genre
+
 
           </Routes>
 
@@ -69,6 +81,7 @@ function App() {
             © 2024 ComicNova. All rights reserved.
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/terms-of-service">Terms of Service</Link>
+            <Link to="/contact">Contact Us</Link>
           </footer>
         </div>
       </Router>

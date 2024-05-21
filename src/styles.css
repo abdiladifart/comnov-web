@@ -71,12 +71,45 @@ nav {
   text-align: center;
 }
 */
+/*footer {*/
+/*  background-color: #43655A;*/
+/*  color: white;*/
+/*  text-align: center;*/
+/*  padding: 60px;*/
+/*  margin-top: auto; !* Pushes the footer to the bottom *!*/
+/*}*/
+
 footer {
-  background-color: #43655A;
-  color: white;
-  text-align: center;
-  padding: 60px;
-  margin-top: auto; /* Pushes the footer to the bottom */
+  background-color: #43655A; /* Dark green background to match the theme */
+  color: white; /* White text for contrast */
+  padding: 60px;; /* Padding on top and bottom */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  flex-wrap: wrap; /* Allows items to wrap as needed */
+  gap: 20px; /* Space between each element */
+  font-size: 16px; /* Adjust font size as needed */
+  margin-top: auto;
+}
+
+footer a {
+  color: white; /* White text color */
+  text-decoration: none; /* Removes underline */
+  padding: 5px 10px; /* Padding for better clickability */
+  transition: color 0.3s; /* Smooth color transition for hover effect */
+}
+
+footer a:hover {
+  color: #a0e7e5; /* Light blue for hover state */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column; /* Stack the links on small screens */
+    align-items: center; /* Center align the links */
+    text-align: center; /* Center text alignment */
+    gap: 10px; /* Smaller gap on small screens */
+  }
 }
 
 /* Additional styling as previously defined */

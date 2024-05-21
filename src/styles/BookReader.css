@@ -1,0 +1,47 @@
+.book-reader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #fff;
+    border-radius: 8px;
+}
+
+.book-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book-cover {
+    max-width: 100px;
+    height: auto;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.viewer {
+    width: 100%; /* Ensure the viewer fills the container width */
+}
+@media (max-width: 600px) {
+    .book-reader-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .book-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-cover {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

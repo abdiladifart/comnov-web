@@ -11,21 +11,52 @@ body {
     padding: 20px;
 }
 .header {
+    position: relative; /* Ensures that the .search-results are positioned relative to this container */
     padding: 10px 20px;
     display: flex;
     justify-content: center; /* Center items horizontally */
     align-items: center;
+    width: 100%; /* Ensures the header takes full width */
 }
 
 .search-bar {
     border: 1px solid #ccc;
     padding: 10px 15px;
     width: 100%;
-    max-width: 500px;
+    max-width: 500px; /* Adjust this to fit your design */
     border-radius: 5px;
-    margin: 0 20px; /* Adds margin to both sides */
 }
 
+.search-results {
+    position: absolute;
+    top: 100%; /* Directly below the search bar */
+    left: 0;
+    right: 0; /* Ensures the dropdown spans the entire width of the header */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(100% - 40px); /* Assumes padding from the header is 20px on each side */
+    margin: auto; /* Centers the dropdown if it's narrower than header */
+}
+
+.search-result-item {
+    display: block;
+    padding: 8px 16px;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.search-result-item:hover, .search-result-item:focus {
+    background-color: #f0f0f0;
+    color: #333;
+}
 
 .logo {
     font-size: 24px;

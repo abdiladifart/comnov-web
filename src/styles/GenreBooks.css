@@ -1,0 +1,56 @@
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px; /* Adds space between the books */
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 200px; /* Fixed width for each book card */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.book-card img {
+    width: 100%; /* Makes image take full width of the card */
+    height: 250px; /* Fixed height for images */
+    object-fit: cover; /* Ensures images cover the area nicely */
+}
+
+.book-card h3 {
+    font-size: 1.1em;
+    margin: 10px;
+}
+
+.book-card p {
+    font-size: 0.9em;
+    padding: 0 10px 10px;
+    color: #666;
+    text-align: justify;
+}
+
+.book-details {
+    padding: 10px;
+}
+
+/* Styling for the genre title */
+.genre-title {
+    font-size: 1.6em;
+    text-align: center;
+    color: #333;
+    padding: 20px;
+}
+
+.error-message {
+    color: #43655A;
+    text-align: center;
+    font-size: 1.2em;
+}

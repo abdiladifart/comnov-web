@@ -1,5 +1,8 @@
-import React from 'react';
+// import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState } from 'react';
+
 import '../styles/home.css';
 import bookOneImage from '../images/PopularReads/5vXvHHo.png';
 import bookTwoImage from '../images/PopularReads/1646514602.jpg';
@@ -16,16 +19,51 @@ import upcomingBookImage2 from '../images/upcoming-releases/RSMH.png';
 import upcomingBookImage3 from '../images/upcoming-releases/COO.png';
 import upcomingBookImage4 from '../images/upcoming-releases/THH.png';
 import upcomingBookImage5 from '../images/upcoming-releases/booth.png';
-import publishImage from '../images/publish/publish.png'; 
+import publishImage from '../images/publish/publish.png';
 
 
 
 function Home() {
+    const [query, setQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+
+    const handleSearchChange = async (event) => {
+        const { value } = event.target;
+        setQuery(value);
+        if (value.length > 2) { // Only search if the user has typed at least 3 characters
+            try {
+                const response = await axios.get(`http://localhost:3370/api/books/search`, {
+                    params: { query: value }
+                });
+                setSearchResults(response.data);
+            } catch (error) {
+                console.error('Error searching books:', error);
+                setSearchResults([]);
+            }
+        } else {
+            setSearchResults([]);
+        }
+    };
+
+
     return (
         <div className="home-container">
             <div className="header">
-                <div className="logo">ComicNova</div>
-                <input type="text" placeholder="Search books, authors, ISBNs..." className="search-bar" />
+                {/*<div className="logo">ComicNova</div>*/}
+                <input
+                    type="text"
+                    placeholder="Search books, authors, ISBNs..."
+                    className="search-bar"
+                    value={query}
+                    onChange={handleSearchChange}
+                />
+                <div className="search-results">
+                    {searchResults.map(book => (
+                        <Link key={book.id} to={`/book/${book.id}`} className="search-result-item">
+                            {book.title} - {book.author}
+                        </Link>
+                    ))}
+                </div>
             </div>
             <div className="main-image"></div>
             <div className="welcome-text">Welcome to ComicNova! Your one-stop shop for comics and novels.</div>
@@ -45,27 +83,25 @@ function Home() {
                 </div>
                 <Link to="/top-reads" className="more-books-link">Explore More</Link>
             </div>
-           
-        {/* New Genre Section */}
-        <div className="genre-section">
 
-  
+        {/* New Genre Section */}
+            <div className="genre-section">
                 <h2>Explore by Genre</h2>
                 <div className="genres-container">
                     <div className="genre-card">
                         <img src={literatureImage} alt="Literature" className="genre-image"/>
                         <h3>Literature</h3>
-                        <Link to="/literature" className="genre-link">View Literature</Link>
+                        <Link to="/genre/Literature" className="genre-link">View Literature</Link>
                     </div>
                     <div className="genre-card">
                         <img src={mangaImage} alt="Manga" className="genre-image"/>
                         <h3>Manga</h3>
-                        <Link to="/manga" className="genre-link">View Manga</Link>
+                        <Link to="/genre/Manga" className="genre-link">View Manga</Link>
                     </div>
                     <div className="genre-card">
                         <img src={comicImage} alt="Comics" className="genre-image"/>
                         <h3>Comics</h3>
-                        <Link to="/comics" className="genre-link">View Comics</Link>
+                        <Link to="/genre/Comics" className="genre-link">View Comics</Link>
                     </div>
                 </div>
             </div>
@@ -95,7 +131,7 @@ function Home() {
 
         </div>
 
-        
+
     );
 }
 
